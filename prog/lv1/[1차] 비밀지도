@@ -1,0 +1,31 @@
+def solution(n, arr1, arr2):
+    answer = []
+    result = ""
+    a = [] 
+    map1 = []
+    map2 = []
+    for i in range(n-1,-1,-1):
+        a.append(2**i)
+    for i in range(len(arr1)):
+        for j in range(len(a)):
+            if arr1[i] - a[j] >= 0:
+                arr1[i] = arr1[i] - a[j]
+                map1.append(1)
+            else:
+                map1.append(0)
+    for i in range(len(arr2)):
+        for j in range(len(a)):
+            if arr2[i] - a[j] >= 0:
+                arr2[i] = arr2[i] - a[j]
+                map2.append(1)
+            else:
+                map2.append(0)
+    line = ""
+    for i in range(len(map1)):
+        if map1[i] == 0 and map2[i] == 0:
+            line += " "
+        else:
+            line +="#"
+    result+=line
+    answer = [result[i:i+n] for i in range(0, len(result), n)]
+    return answer

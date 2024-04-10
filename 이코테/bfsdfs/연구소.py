@@ -49,7 +49,7 @@ def dfs(wall):
         
         #안전 영역 계산
         result = max(result,count())
-        return
+        return result
     
     #울타리 설치하기
     for i in range(n):
